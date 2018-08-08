@@ -1,3 +1,4 @@
-.topspace {
-	margin-top: 60px;
-}
+/* Style for index page */
+
+.topspace {	margin-top: 60px; }
+.nodisplay { display: none; }

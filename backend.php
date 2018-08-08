@@ -24,6 +24,7 @@ function Call_Foursquare($placename) {
 // Filter the data returned from Foursquare to leave just the items we're interested in:
 function Filter_FS_Data($raw_data) {
 	$response = []; // Empty array to be filled with response data
+	$results = []; // Results data sub array, inserted into $response before return
 
 	$json_data = json_decode($raw_data); // Convert raw data returned from Foursquare into JSON structure we can parse
 	if($json_data->response->warning) { // Pick up any warning from Foursquare if there is one
@@ -50,12 +51,13 @@ function Filter_FS_Data($raw_data) {
 					// No category defined, so get URL of default category icon:
 					else $array_item['icon'] = 'https://foursquare.com/img/categories/building/default_88.png';
 					
-					$response[] = $array_item; // Add to full response data array
+					$results[] = $array_item; // Add to full results data array
 				}
 			}
 		}
 	}
 	
+	$response['results'] = $results; // Place results into response
 	return $response; // Pass the full response data array back for JSON encoding and return to user
 }
 
