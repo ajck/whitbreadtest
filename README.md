@@ -1,5 +1,7 @@
 # whitbreadtest
 
+Test as per: https://github.com/and-digital/and-developer-test
+
 Built with JQuery and Twitter Bootstrap on the front end, PHP on the backend
 
 Structure:
